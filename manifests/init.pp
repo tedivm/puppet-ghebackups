@@ -35,7 +35,38 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class ghebackups {
+class ghebackups (
+  $install_location = $ghebackups::params::install_location,
+  $log_location = $ghebackups::params::log_location,
+  $log_backup = $ghebackups::params::log_backup,
+  $log_restore = $ghebackups::params::log_restore,
+  $ghe_hostname = $ghebackups::params::ghe_hostname,
+  $ghe_data_dir = $ghebackups::params::ghe_data_dir,
+  $ghe_num_snapshots = $ghebackups::params::ghe_num_snapshots,
+  $ghe_restore_host = $ghebackups::params::ghe_restore_host,
+  $ghe_extra_ssh_opts = $ghebackups::params::ghe_extra_ssh_opts,
+  $ghe_backup_utils_repo = $ghebackups::params::ghe_backup_utils_repo,
+) inherits ghebackups::params {
 
+  class {'ghebackups::install':
+    install_location      => $ghebackups::install_location,
+    ghe_backup_utils_repo => $ghebackups::ghe_backup_utils_repo,
+  } ->
+
+  class {'ghebackups::config':
+    install_location   => $ghebackups::install_location,
+    ghe_hostname       => $ghebackups::ghe_hostname,
+    ghe_data_dir       => $ghebackups::ghe_data_dir,
+    ghe_num_snapshots  => $ghebackups::ghe_num_snapshots,
+    ghe_restore_host   => $ghebackups::ghe_restore_host,
+    ghe_extra_ssh_opts => $ghebackups::ghe_extra_ssh_opts,
+  } ->
+
+  class {'ghebackups::cron':
+    install_location => $ghebackups::install_location,
+    log_location     => $ghebackups::log_location,
+    log_backup       => $ghebackups::log_backup,
+    log_restore      => $ghebackups::log_restore,
+  }
 
 }
