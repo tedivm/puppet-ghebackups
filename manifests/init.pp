@@ -1,39 +1,73 @@
 # == Class: ghebackups
 #
-# Full description of class ghebackups here.
+# This module installs and configures the Github Enteprise Backup Utilities.
 #
 # === Parameters
 #
-# Document parameters here.
+# [*install_location*]
+#   Defines the location to install the ghe-backup-utils repository.
+#   Defaults to '/opt/ghe-backup-utils'
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
+# [*log_location*]
+#   Defines the directory to place log files in.
+#   Defaults to '/opt/ghe-backup-utils'.
 #
-# === Variables
+# [*log_backup*]
+#   Defines the name of the backup log file.
+#   Defaults to 'backup.log'
 #
-# Here you should define a list of variables that this module would require.
+# [*log_restore*]
+#   Defines the name of the restore log file.
+#   Defaults to 'restore.log'
 #
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
+# [*restore*]
+#   If true backups will be synced to a standby host (ghe_restore_host).
+#   Defaults to false.
+#
+# [*cron_hour*]
+#   Defines the time to run backups. This takes the cron format.
+#   Defaults to '*/6'.
+#
+# [*ghe_hostname*]
+#   Defines the host to backup.
+#   Defaults to 'github'.
+#
+# [*ghe_data_dir*]
+#   Defines the location to store backups.
+#   Defaults to the "data" directory in the install_location.
+#
+# [*ghe_num_snapshots*]
+#   Defines the number of snapshots to keep.
+#   Defaults to 10.
+#
+# [*ghe_restore_host*]
+#   Defines the host to restore to.
+#   Defaults to null.
+#
+# [*ghe_extra_ssh_opts*]
+#   Defines any custom ssh settings, such as disabling host key checks.
+#   Defaults to '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+#
+# [*ghe_backup_utils_repo*]
+#   Defines the location of the backup-utils repository.
+#   Defaults to https://github.com/github/backup-utils.git.
 #
 # === Examples
 #
 #  class { 'ghebackups':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    ghe_hostname      => 'github.example.net',
+#    ghe_data_dir      => '/backups/github',
+#    ghe_num_snapshots => 48,,
+#    cron_hour         => '*'
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Robert Hafner <tedivm@tedivm.com>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Robert Hafner
 #
 class ghebackups (
   $install_location = $ghebackups::params::install_location,
