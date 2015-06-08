@@ -4,7 +4,7 @@ class ghebackups::cron (
   $log_location,
   $log_backup,
   $log_restore,
-  $restore = false
+  $restore,
 ) {
 
   $backup_exec = "${install_location}/bin/ghe-backup -v 1>>${log_location}/${log_backup}"
@@ -25,5 +25,4 @@ class ghebackups::cron (
       minute  => 30
     }
   }
-
 }

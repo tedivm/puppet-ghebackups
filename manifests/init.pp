@@ -40,6 +40,8 @@ class ghebackups (
   $log_location = $ghebackups::params::log_location,
   $log_backup = $ghebackups::params::log_backup,
   $log_restore = $ghebackups::params::log_restore,
+  $restore = $ghebackups::params::restore,
+  $cron_hour = $ghebackups::params::cron_hour,
   $ghe_hostname = $ghebackups::params::ghe_hostname,
   $ghe_data_dir = $ghebackups::params::ghe_data_dir,
   $ghe_num_snapshots = $ghebackups::params::ghe_num_snapshots,
@@ -67,6 +69,7 @@ class ghebackups (
     log_location     => $ghebackups::log_location,
     log_backup       => $ghebackups::log_backup,
     log_restore      => $ghebackups::log_restore,
+    cron_hour        => $ghebackups::cron_hour,
+    restore          => $ghebackups::restore,
   }
-
 }

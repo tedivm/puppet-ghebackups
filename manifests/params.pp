@@ -4,6 +4,7 @@ class ghebackups::params {
   $log_location = $install_location
   $log_backup = 'backup.log'
   $log_restore = 'restore.log'
+  $restore = false
   $cron_hour = '*/6'
   $ghe_hostname='github.example.com'
   $ghe_data_dir='data'

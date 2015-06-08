@@ -9,5 +9,4 @@ class ghebackups::install (
     source   => $ghe_backup_utils_repo,
     revision => 'master',
   }
-
 }
