@@ -100,7 +100,7 @@ class { 'ghebackups':
 
 ####`ghe_num_snapshots`
     Defines the number of snapshots to keep.
-    Defaults to 10.
+    Defaults to 25.
 
 ####`ghe_restore_host`
     Defines the host to restore to.
