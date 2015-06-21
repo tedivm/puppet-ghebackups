@@ -75,6 +75,7 @@ class ghebackups (
   $log_backup = $ghebackups::params::log_backup,
   $log_restore = $ghebackups::params::log_restore,
   $restore = $ghebackups::params::restore,
+  $user = $ghebackups::params::user,
   $cron_hour = $ghebackups::params::cron_hour,
   $ghe_hostname = $ghebackups::params::ghe_hostname,
   $ghe_data_dir = $ghebackups::params::ghe_data_dir,
@@ -84,13 +85,19 @@ class ghebackups (
   $ghe_backup_utils_repo = $ghebackups::params::ghe_backup_utils_repo,
 ) inherits ghebackups::params {
 
+  class {'ghebackups::user':
+    user => $ghebackups::user
+  } ->
+
   class {'ghebackups::install':
     install_location      => $ghebackups::install_location,
     ghe_backup_utils_repo => $ghebackups::ghe_backup_utils_repo,
+    user                  => $ghebackups::user
   } ->
 
   class {'ghebackups::config':
     install_location   => $ghebackups::install_location,
+    user               => $ghebackups::user
     ghe_hostname       => $ghebackups::ghe_hostname,
     ghe_data_dir       => $ghebackups::ghe_data_dir,
     ghe_num_snapshots  => $ghebackups::ghe_num_snapshots,
@@ -100,6 +107,7 @@ class ghebackups (
 
   class {'ghebackups::cron':
     install_location => $ghebackups::install_location,
+    user             => $ghebackups::user
     log_location     => $ghebackups::log_location,
     log_backup       => $ghebackups::log_backup,
     log_restore      => $ghebackups::log_restore,

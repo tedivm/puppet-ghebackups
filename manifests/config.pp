@@ -1,5 +1,6 @@
 class ghebackups::config (
   $install_location,
+  $user,
   $ghe_hostname,
   $ghe_data_dir,
   $ghe_num_snapshots,
@@ -9,8 +10,8 @@ class ghebackups::config (
 
   file { "${install_location}/backup.config":
     content => template('ghebackups/backup.config.erb'),
-    owner   => 'root',
-    group   => 'root',
+    owner   => $user,
+    group   => $user,
     mode    => '0644',
     require => Vcsrepo[$install_location],
   }
