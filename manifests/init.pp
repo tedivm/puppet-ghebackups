@@ -85,6 +85,8 @@ class ghebackups (
   $ghe_backup_utils_repo = $ghebackups::params::ghe_backup_utils_repo,
 ) inherits ghebackups::params {
 
+  class {'ghebackups::packages':} ->
+
   class {'ghebackups::user':
     user => $ghebackups::user
   } ->

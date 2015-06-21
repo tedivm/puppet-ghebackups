@@ -6,10 +6,14 @@ class ghebackups::params {
   $log_restore = 'restore.log'
   $restore = false
   $cron_hour = '*/6'
-  $ghe_hostname='github'
-  $ghe_data_dir='data'
+  $ghe_hostname = 'github'
+  $ghe_data_dir = 'data'
   $ghe_num_snapshots=10
   $ghe_restore_host=''
   $ghe_extra_ssh_opts='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
   $user = 'root'
+  $packages = [
+    'git',
+    'rsync'
+  ]
 }
