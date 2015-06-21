@@ -82,9 +82,13 @@ class { 'ghebackups':
     If true backups will be synced to a standby host (ghe_restore_host).
     Defaults to false.
 
+####`user`
+    The user that the script will run as. Must have write access to ghe_data_dir.
+    Defaults to root.
+
 ####`cron_hour`
     Defines the time to run backups. This takes the cron format.
-    Defaults to '\*/6'.
+    Defaults to '\*', which means it runs hourly.
 
 ####`ghe_hostname`
     Defines the host to backup.
