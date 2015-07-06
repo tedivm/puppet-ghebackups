@@ -1,4 +1,4 @@
-class ghebackups::install (
+class ghebackups::user (
   $user = $ghebackups::params::user
 ) inherits ghebackups::params {
 
