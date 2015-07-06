@@ -99,7 +99,7 @@ class ghebackups (
 
   class {'ghebackups::config':
     install_location   => $ghebackups::install_location,
-    user               => $ghebackups::user
+    user               => $ghebackups::user,
     ghe_hostname       => $ghebackups::ghe_hostname,
     ghe_data_dir       => $ghebackups::ghe_data_dir,
     ghe_num_snapshots  => $ghebackups::ghe_num_snapshots,
@@ -109,7 +109,7 @@ class ghebackups (
 
   class {'ghebackups::cron':
     install_location => $ghebackups::install_location,
-    user             => $ghebackups::user
+    user             => $ghebackups::user,
     log_location     => $ghebackups::log_location,
     log_backup       => $ghebackups::log_backup,
     log_restore      => $ghebackups::log_restore,
