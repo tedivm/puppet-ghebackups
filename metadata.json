@@ -1,8 +1,9 @@
 {
   "name": "tedivm-ghebackups",
-  "version": "0.1.0",
-  "author": "tedivm",
-  "summary": "Github Enterprise Backups Controlled By Puppet",
+  "version": "0.5.0",
+  "author": "Robert Hafner",
+  "summary": "Github Enterprise Backups Controlled Using Puppet",
+  "description": "This module installs and manages the GHE Backup Utility",
   "license": "MIT",
   "source": "https://github.com/tedivm/puppet-ghebackups",
   "project_page": "https://github.com/tedivm/puppet-ghebackups",
@@ -10,5 +11,10 @@
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"puppetlabs/vcsrepo","version_requirement":">=1.0.0 <2.0.0"}
+  ],
+  "operatingsystem_support": [
+    { "operatingsystem": "Debian", "operatingsystemrelease": ["6", "7"]},
+    { "operatingsystem": "RedHat", "operatingsystemrelease": ["5.0", "6.0"]},
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": ["12.04", "14.04"]}
   ]
 }
