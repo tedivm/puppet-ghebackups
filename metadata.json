@@ -1,6 +1,6 @@
 {
   "name": "tedivm-ghebackups",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Robert Hafner",
   "summary": "Github Enterprise Backups Controlled Using Puppet",
   "description": "This module installs and manages the GHE Backup Utility",
