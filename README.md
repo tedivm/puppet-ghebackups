@@ -23,8 +23,8 @@ The fine folks at Github have a set of tools for [backing up Github Enterprise
 installations](https://github.com/github/backup-utils). This tool is available
 in a git repository.
 
-This module installs those tools and keeps them up to date. It creates the
-needed configuration files as well as the cronjobs that run the backups. It also
+This module installs this tools and keeps it up to date. It creates the needed
+configuration files as well as the cronjobs that run the backups. It also
 provides sane default configurations to make backups more reliable.
 
 ## Setup
