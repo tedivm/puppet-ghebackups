@@ -56,7 +56,7 @@ A more complete example including custom hostname would look like this.
 class { 'ghebackups':
   ghe_hostname      => 'github.example.net',
   ghe_data_dir      => '/backups/github',
-  ghe_num_snapshots => 48,
+  ghe_num_snapshots => 72,
 }
 ```
 
@@ -100,7 +100,7 @@ class { 'ghebackups':
 
 ####`ghe_num_snapshots`
     Defines the number of snapshots to keep.
-    Defaults to 25.
+    Defaults to 48.
 
 ####`ghe_restore_host`
     Defines the host to restore to.

@@ -8,7 +8,7 @@ class ghebackups::params {
   $cron_hour = '*'
   $ghe_hostname = 'github'
   $ghe_data_dir = 'data'
-  $ghe_num_snapshots = 25
+  $ghe_num_snapshots = 48
   $ghe_restore_host=''
   $ghe_extra_ssh_opts='-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
   $user = 'root'
