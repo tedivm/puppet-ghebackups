@@ -98,6 +98,13 @@ class { 'ghebackups':
     Defines the location to store backups.
     Defaults to the "data" directory in the install_location.
 
+####`ghe_create_data_dir`
+    Defines whether to create the data directory or not if it doesn't exist.
+    This should be disabled when saving to NAS or ISCSI drives, otherwise the
+    mount point could be overwritten while the drive is unavailable.
+    Defaults to yes.
+
+
 ####`ghe_num_snapshots`
     Defines the number of snapshots to keep.
     Defaults to 48.
