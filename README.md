@@ -121,6 +121,11 @@ class { 'ghebackups':
     Defines the location of the backup-utils repository.
     Defaults to https://github.com/github/backup-utils.git.
 
+####`revision`
+    Defines the branch name or a commit SHA or tag of the backup-utils repo.
+    Defaults to master.
+
+
 
 ## Development
 
