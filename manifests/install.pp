@@ -1,6 +1,7 @@
 class ghebackups::install (
   $ghe_backup_utils_repo,
   $install_location,
+  $revision,
   $user,
 ) {
 
@@ -9,6 +10,6 @@ class ghebackups::install (
     user     => $user,
     provider => git,
     source   => $ghe_backup_utils_repo,
-    revision => 'master',
+    revision => $revision,
   }
 }

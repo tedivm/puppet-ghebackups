@@ -75,6 +75,7 @@ class ghebackups (
   $log_backup = $ghebackups::params::log_backup,
   $log_restore = $ghebackups::params::log_restore,
   $restore = $ghebackups::params::restore,
+  $revision = $ghebackups::params::revision,
   $user = $ghebackups::params::user,
   $cron_hour = $ghebackups::params::cron_hour,
   $ghe_hostname = $ghebackups::params::ghe_hostname,
@@ -94,6 +95,7 @@ class ghebackups (
   class {'ghebackups::install':
     install_location      => $ghebackups::install_location,
     ghe_backup_utils_repo => $ghebackups::ghe_backup_utils_repo,
+    revision              => $ghebackups::revision,
     user                  => $ghebackups::user
   } ->
 
