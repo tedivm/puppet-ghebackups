@@ -79,6 +79,7 @@ class ghebackups (
   $user = $ghebackups::params::user,
   $cron_hour = $ghebackups::params::cron_hour,
   $ghe_hostname = $ghebackups::params::ghe_hostname,
+  $ghe_create_data_dir = $ghebackups::params::ghe_create_data_dir,
   $ghe_data_dir = $ghebackups::params::ghe_data_dir,
   $ghe_num_snapshots = $ghebackups::params::ghe_num_snapshots,
   $ghe_restore_host = $ghebackups::params::ghe_restore_host,
@@ -100,13 +101,14 @@ class ghebackups (
   } ->
 
   class {'ghebackups::config':
-    install_location   => $ghebackups::install_location,
-    user               => $ghebackups::user,
-    ghe_hostname       => $ghebackups::ghe_hostname,
-    ghe_data_dir       => $ghebackups::ghe_data_dir,
-    ghe_num_snapshots  => $ghebackups::ghe_num_snapshots,
-    ghe_restore_host   => $ghebackups::ghe_restore_host,
-    ghe_extra_ssh_opts => $ghebackups::ghe_extra_ssh_opts,
+    install_location    => $ghebackups::install_location,
+    user                => $ghebackups::user,
+    ghe_hostname        => $ghebackups::ghe_hostname,
+    ghe_create_data_dir => $ghebackups::ghe_create_data_dir,
+    ghe_data_dir        => $ghebackups::ghe_data_dir,
+    ghe_num_snapshots   => $ghebackups::ghe_num_snapshots,
+    ghe_restore_host    => $ghebackups::ghe_restore_host,
+    ghe_extra_ssh_opts  => $ghebackups::ghe_extra_ssh_opts,
   } ->
 
   class {'ghebackups::cron':
