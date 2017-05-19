@@ -2,6 +2,7 @@ class ghebackups::config (
   $install_location,
   $user,
   $ghe_hostname,
+  $ghe_create_data_dir,
   $ghe_data_dir,
   $ghe_num_snapshots,
   $ghe_restore_host,
